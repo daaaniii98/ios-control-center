@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SettingsFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <!--    Panel Connectivity -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/panel_connectivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_mate_color"
+        android:padding="10dp"
+        android:transitionName="panel"
+        app:layout_constraintEnd_toStartOf="@+id/panel_player"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guide"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_percent="0.45">
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/tgl_plane"
+            android:layout_width="@dimen/togle_size"
+            android:layout_height="@dimen/togle_size"
+            android:layout_margin="5dp"
+            android:transitionName="airplane"
+            app:alignItems="center"
+            app:layout_constraintBottom_toTopOf="@+id/tgl_wifi"
+            app:layout_constraintEnd_toStartOf="@+id/tgl_wifi_tet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toggle_requiredAmount="0"
+            app:toggle_selectableAmount="1">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:toggle_backgroundColor="@color/white_light"
+                app:toggle_borderColor="@android:color/transparent"
+                app:toggle_btnCornerRadius="100dp"
+                app:toggle_icon="@drawable/ic_airplane_mode"
+                app:toggle_iconColor="@color/white"
+                app:toggle_iconPadding="22dp"
+                app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                app:toggle_selectedIcon="@drawable/ic_airplane_mode" />
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/tgl_wifi_tet"
+            android:layout_width="@dimen/togle_size"
+            android:layout_height="@dimen/togle_size"
+            android:layout_margin="5dp"
+            android:transitionName="wifi_tet"
+            app:alignItems="center"
+            app:layout_constraintBottom_toTopOf="@+id/tgl_bltoth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tgl_plane"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toggle_requiredAmount="0"
+            app:toggle_selectableAmount="1">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:toggle_backgroundColor="@color/white_light"
+                app:toggle_borderColor="@android:color/transparent"
+                app:toggle_btnCornerRadius="100dp"
+                app:toggle_icon="@drawable/ic_wifi_tet"
+                app:toggle_iconColor="@color/white"
+                app:toggle_iconPadding="22dp"
+                app:toggle_selectedBackgroundColor="@color/green_selected_color"
+                app:toggle_selectedIcon="@drawable/ic_wifi_tet" />
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/tgl_wifi"
+            android:layout_width="@dimen/togle_size"
+            android:layout_height="@dimen/togle_size"
+            android:layout_margin="5dp"
+            android:transitionName="wifi"
+            app:alignItems="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tgl_bltoth"
+            app:layout_constraintStart_toEndOf="@+id/tgl_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tgl_plane"
+            app:toggle_requiredAmount="0"
+            app:toggle_selectableAmount="1"
+
+            >
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:toggle_backgroundColor="@color/white_light"
+                app:toggle_borderColor="@android:color/transparent"
+                app:toggle_btnCornerRadius="100dp"
+                app:toggle_icon="@drawable/ic_wifi"
+                app:toggle_iconColor="@color/white"
+                app:toggle_iconPadding="22dp"
+                app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                app:toggle_selectedIcon="@drawable/ic_wifi" />
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/tgl_bltoth"
+            android:layout_width="@dimen/togle_size"
+            android:layout_height="@dimen/togle_size"
+            android:layout_margin="5dp"
+            android:transitionName="bluetooth"
+            app:alignItems="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tgl_wifi"
+            app:layout_constraintTop_toBottomOf="@+id/tgl_wifi_tet"
+            app:toggle_requiredAmount="0"
+            app:toggle_selectableAmount="1">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:toggle_backgroundColor="@color/white_light"
+                app:toggle_borderColor="@android:color/transparent"
+                app:toggle_btnCornerRadius="100dp"
+                app:toggle_icon="@drawable/ic_bluetooth"
+                app:toggle_iconColor="@color/white"
+                app:toggle_iconPadding="22dp"
+                app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                app:toggle_selectedIcon="@drawable/ic_bluetooth" />
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    Panel Music Player -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/panel_player"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/panel_connectivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/panel_connectivity"
+        app:layout_constraintTop_toBottomOf="@+id/guide"
+        app:layout_constraintWidth_percent="0.45">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_wifi_tet"
+            android:tint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Not playing"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/btn_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_rewind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_rewind"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_play"
+            app:layout_constraintEnd_toStartOf="@+id/btn_play"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_play"
+            tools:layout_editor_absoluteX="9dp" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_forward"
+            app:layout_constraintStart_toEndOf="@+id/btn_rewind"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:layout_editor_absoluteX="9dp" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_forward"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_play"
+            app:layout_constraintTop_toTopOf="@+id/btn_play"
+            tools:layout_editor_absoluteX="9dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    Button Rotation Lock -->
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_lock_rotation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="22dp"
+        android:src="@drawable/ic_rotation_lock"
+        app:layout_constraintEnd_toStartOf="@+id/btn_screen"
+        app:layout_constraintHeight_percent="0.120"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/panel_connectivity"
+        app:layout_constraintTop_toBottomOf="@+id/panel_connectivity"
+        app:layout_constraintWidth_percent="0.21" />
+
+    <!--    Button Screen -->
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_screen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="22dp"
+        android:src="@drawable/ic_screen"
+        app:layout_constraintEnd_toEndOf="@+id/panel_connectivity"
+        app:layout_constraintHeight_percent="0.120"
+        app:layout_constraintStart_toEndOf="@+id/btn_lock_rotation"
+        app:layout_constraintTop_toBottomOf="@+id/panel_connectivity"
+        app:layout_constraintWidth_percent="0.21" />
+
+
+    <!--    Progress Brightness -->
+    <com.hyy.iosprogressbar.IOSProgressBar
+        android:id="@+id/progress_brightness"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:ipb_background_color="@color/black_80"
+        app:ipb_conner_radius="@dimen/corner_radius"
+        app:ipb_progress="50"
+        app:ipb_progress_color="@color/white_80"
+        app:ipb_progress_max="100"
+        app:ipb_progress_min="0"
+        app:ipb_progress_show_divider="false"
+        app:ipb_progress_show_text="false"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="@+id/panel_player"
+        app:layout_constraintTop_toBottomOf="@+id/panel_player"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_percent="0.21" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/appCompatImageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20sp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_brightness"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_brightness"
+        app:layout_constraintEnd_toEndOf="@+id/progress_brightness"
+        app:layout_constraintStart_toStartOf="@+id/progress_brightness" />
+
+    <!-- Progress Volume -->
+    <com.hyy.iosprogressbar.IOSProgressBar
+        android:id="@+id/progress_vol"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:ipb_background_color="@color/black_80"
+        app:ipb_conner_radius="@dimen/corner_radius"
+        app:ipb_progress="50"
+        app:ipb_progress_color="@color/white_80"
+        app:ipb_progress_max="100"
+        app:ipb_progress_min="0"
+        app:ipb_progress_show_divider="false"
+        app:ipb_progress_show_text="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toEndOf="@+id/progress_brightness"
+        app:layout_constraintTop_toBottomOf="@+id/panel_player"
+        app:layout_constraintWidth_percent="0.21" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20sp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_vol_off"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_vol"
+        app:layout_constraintEnd_toEndOf="@+id/progress_vol"
+        app:layout_constraintStart_toStartOf="@+id/progress_vol" />
+
+    <!--   Focus -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="10dp"
+        android:id="@+id/panel_focus"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_brightness"
+        app:layout_constraintEnd_toStartOf="@+id/panel_player"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_lock_rotation"
+        app:layout_constraintWidth_percent="0.45"
+        app:layout_constraintHeight_percent="0.122">
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/tgl_focus"
+            android:layout_width="@dimen/togle_size"
+            android:layout_height="@dimen/togle_size"
+            android:layout_margin="5dp"
+            app:alignItems="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toggle_requiredAmount="0"
+            app:toggle_selectableAmount="1"
+
+            >
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:toggle_backgroundColor="@color/white_light"
+                app:toggle_borderColor="@android:color/transparent"
+                app:toggle_btnCornerRadius="100dp"
+                app:toggle_icon="@drawable/ic_focus"
+                app:toggle_iconColor="@color/white"
+                app:toggle_iconPadding="22dp"
+                app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                app:toggle_selectedIcon="@drawable/ic_focus" />
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Focus"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tgl_focus"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    Bottom Button Strip -->
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_torch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="22dp"
+        android:src="@drawable/ic_torch"
+        app:layout_constraintEnd_toStartOf="@+id/btn_calculator"
+        app:layout_constraintHeight_percent="0.120"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/panel_focus"
+        app:layout_constraintTop_toBottomOf="@+id/panel_focus"
+        app:layout_constraintWidth_percent="0.21" />
+
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_calculator"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="22dp"
+        android:src="@drawable/ic_calculator"
+        app:layout_constraintEnd_toEndOf="@+id/panel_focus"
+        app:layout_constraintHeight_percent="0.120"
+        app:layout_constraintStart_toEndOf="@+id/btn_torch"
+        app:layout_constraintTop_toBottomOf="@+id/panel_focus"
+        app:layout_constraintWidth_percent="0.21" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_cam"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="22dp"
+        android:src="@drawable/ic_cam"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintEnd_toStartOf="@+id/btn_record"
+        app:layout_constraintHeight_percent="0.120"
+        app:layout_constraintStart_toStartOf="@+id/progress_brightness"
+        app:layout_constraintTop_toBottomOf="@+id/panel_focus"
+        app:layout_constraintWidth_percent="0.21" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_record"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="22dp"
+        android:src="@drawable/ic_record"
+        app:layout_constraintEnd_toEndOf="@+id/progress_vol"
+        app:layout_constraintHeight_percent="0.120"
+        app:layout_constraintStart_toEndOf="@+id/btn_cam"
+        app:layout_constraintTop_toBottomOf="@+id/panel_focus"
+        app:layout_constraintWidth_percent="0.21" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

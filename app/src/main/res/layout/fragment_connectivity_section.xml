@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ConnectivitySectionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/panel_connectivity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_mate_color"
+        android:padding="10dp"
+        android:transitionName="panel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:id="@+id/tgl_plane_holder"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tgl_wifi_holder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tgl_wifi_tet_holder"
+            android:gravity="center">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/tgl_plane"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:alignItems="center"
+                app:toggle_selectableAmount="1"
+                android:transitionName="airplane"
+                android:layout_margin="5dp"
+                app:toggle_requiredAmount="0"
+                >
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:toggle_backgroundColor="@color/white_light"
+                    app:toggle_borderColor="@android:color/transparent"
+                    app:toggle_btnCornerRadius="100dp"
+                    app:toggle_icon="@drawable/ic_airplane_mode"
+                    app:toggle_iconColor="@color/white"
+                    app:toggle_iconPadding="22dp"
+                    app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                    app:toggle_selectedIcon="@drawable/ic_airplane_mode" />
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/airplance_mode"
+                android:textColor="@color/white"
+                android:textFontWeight="700"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/off"
+                android:textColor="@color/white"
+                android:textFontWeight="200"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/tgl_wifi_tet_holder"
+            app:layout_constraintBottom_toTopOf="@+id/tgl_bltoth_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tgl_plane_holder"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/tgl_wifi_tet"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:alignItems="center"
+                app:toggle_selectableAmount="1"
+                app:toggle_requiredAmount="0"
+                android:layout_margin="5dp"
+                android:transitionName="wifi_tet"
+
+                >
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:toggle_backgroundColor="@color/white_light"
+                    app:toggle_borderColor="@android:color/transparent"
+                    app:toggle_btnCornerRadius="100dp"
+                    app:toggle_icon="@drawable/ic_wifi_tet"
+                    app:toggle_iconColor="@color/white"
+                    app:toggle_iconPadding="22dp"
+                    app:toggle_selectedBackgroundColor="@color/green_selected_color"
+                    app:toggle_selectedIcon="@drawable/ic_wifi_tet" />
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Mobile Data Off"
+                android:textColor="@color/white"
+                android:textFontWeight="700"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/off"
+                android:textColor="@color/white"
+                android:textFontWeight="200"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tgl_drop_holder"
+            android:id="@+id/tgl_wifi_holder"
+            app:layout_constraintEnd_toStartOf="@+id/tgl_bltoth_holder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tgl_plane_holder"
+            android:gravity="center">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/tgl_wifi"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:alignItems="center"
+                app:toggle_selectableAmount="1"
+                app:toggle_requiredAmount="0"
+                android:layout_margin="5dp"
+android:transitionName="wifi"
+                >
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:toggle_backgroundColor="@color/white_light"
+                    app:toggle_borderColor="@android:color/transparent"
+                    app:toggle_btnCornerRadius="100dp"
+                    app:toggle_icon="@drawable/ic_wifi"
+                    app:toggle_iconColor="@color/white"
+                    app:toggle_iconPadding="22dp"
+                    app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                    app:toggle_selectedIcon="@drawable/ic_wifi" />
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Wifi"
+                android:textColor="@color/white"
+                android:textFontWeight="700"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/off"
+                android:textColor="@color/white"
+                android:textFontWeight="200"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/tgl_bltoth_holder"
+            app:layout_constraintBottom_toTopOf="@+id/tgl_hotspot_holder"
+            app:layout_constraintStart_toEndOf="@+id/tgl_wifi_holder"
+            app:layout_constraintTop_toBottomOf="@+id/tgl_wifi_tet_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/tgl_bltoth"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:alignItems="center"
+                app:toggle_selectableAmount="1"
+                app:toggle_requiredAmount="0"
+                android:layout_margin="5dp"
+                android:transitionName="bluetooth"
+
+                >
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:toggle_backgroundColor="@color/white_light"
+                    app:toggle_borderColor="@android:color/transparent"
+                    app:toggle_btnCornerRadius="100dp"
+                    app:toggle_icon="@drawable/ic_bluetooth"
+                    app:toggle_iconColor="@color/white"
+                    app:toggle_iconPadding="22dp"
+                    app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                    app:toggle_selectedIcon="@drawable/ic_bluetooth" />
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Bluetooth"
+                android:textColor="@color/white"
+                android:textFontWeight="700"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/off"
+                android:textColor="@color/white"
+                android:textFontWeight="200"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/tgl_drop_holder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/tgl_hotspot_holder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tgl_wifi_holder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tgl_wifi_holder">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/tgl_drop"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                app:alignItems="center"
+                app:toggle_requiredAmount="0"
+                app:toggle_selectableAmount="1"
+
+                >
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:toggle_backgroundColor="@color/white_light"
+                    app:toggle_borderColor="@android:color/transparent"
+                    app:toggle_btnCornerRadius="100dp"
+                    app:toggle_icon="@drawable/ic_drop"
+                    app:toggle_iconColor="@color/white"
+                    app:toggle_iconPadding="22dp"
+                    app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                    app:toggle_selectedIcon="@drawable/ic_drop" />
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="AirDrop"
+                android:textColor="@color/white"
+                android:textFontWeight="700" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/off"
+                android:textColor="@color/white"
+                android:textFontWeight="200" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/tgl_hotspot_holder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tgl_wifi_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tgl_wifi_holder">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/tgl_hotspot"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                app:alignItems="center"
+                app:toggle_requiredAmount="0"
+                app:toggle_selectableAmount="1"
+
+                >
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:toggle_backgroundColor="@color/white_light"
+                    app:toggle_borderColor="@android:color/transparent"
+                    app:toggle_btnCornerRadius="100dp"
+                    app:toggle_icon="@drawable/ic_hotspot"
+                    app:toggle_iconColor="@color/white"
+                    app:toggle_iconPadding="22dp"
+                    app:toggle_selectedBackgroundColor="@color/blue_selected_color"
+                    app:toggle_selectedIcon="@drawable/ic_hotspot" />
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Hotspot"
+                android:textColor="@color/white"
+                android:textFontWeight="700" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/off"
+                android:textColor="@color/white"
+                android:textFontWeight="200" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
